@@ -1,0 +1,66 @@
+body {
+    margin-top:10em;
+    font-family: 'Roboto', sans-serif;
+    padding-left:auto;
+    padding-right:auto;
+}
+
+.atml-container {
+    width:1167px;
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid black;
+}
+
+.atml-header {
+    width:100%;
+    padding:.5rem;
+    display:inline-block;
+}
+
+.atml-header h1 {
+    font-size: 2.25rem;
+    margin:.5rem 0 .5rem;
+}
+
+.atml-body {
+    border-top: 1px solid black;
+    width:100%;
+}
+
+.atml-image {
+    width: 60%;
+    display:inline-block;
+    padding:.5rem;
+}
+
+.atml-image--image {
+    display:none;
+}
+
+.atml-description {
+    width: 36.66%;
+    display:inline-block;
+    padding:.5rem;
+    border: 1px dashed black;
+    vertical-align: top;
+    height:470px;
+}
+
+.atml-description li {
+    /*height:4.25em;*/
+    background-color:orange;
+    padding-left:1em;
+}
+
+a.atml-description--title {
+    text-decoration: none;
+}
+
+div.atml-description--content {
+    display:none;
+}
+
+.active {
+    display:block !important;
+}
