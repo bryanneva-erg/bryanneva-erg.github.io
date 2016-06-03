@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Atmospheric Lifecycle Demo</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+    <link href='https://fonts.googleapis.com/css?family=Nunito:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="stylesheets/resets.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
@@ -16,61 +17,73 @@
         <div class="atml-body">
             <div class="atml-image">
                 <ul>
-                    <li class="atml-image--image active" data-content="1"><img src="http://placehold.it/300x200?text=A" width="100%" alt="Body Image"></li>
-                    <li class="atml-image--image" data-content="2"><img src="http://placehold.it/300x200?text=B" width="100%" alt="Body Image"></li>
-                    <li class="atml-image--image" data-content="3"><img src="http://placehold.it/300x200?text=C" width="100%" alt="Body Image"></li>
-                    <li class="atml-image--image" data-content="4"><img src="http://placehold.it/300x200?text=D" width="100%" alt="Body Image"></li>
-                    <li class="atml-image--image" data-content="5"><img src="http://placehold.it/300x200?text=E" width="100%" alt="Body Image"></li>
-                    <li class="atml-image--image" data-content="6"><img src="http://placehold.it/300x200?text=F" width="100%" alt="Body Image"></li>
-                    <li class="atml-image--image" data-content="7"><img src="http://placehold.it/300x200?text=G" width="100%" alt="Body Image"></li>
+                    <li class="atml-image--image active" data-content="1"><img src="images/8176_SLCF_Base[1].png" alt="Body Image"></li>
+                    <li class="atml-image--image" data-content="2"><img src="images/8176_SLCF_LongLivedGases.png" alt="Body Image"></li>
+                    <li class="atml-image--image" data-content="3"><img src="images/8176_SLCF_ShortLivedGases.png" alt="Body Image"></li>
+                    <li class="atml-image--image" data-content="4"><img src="images/8176_SLCF_Base[1].png" alt="Body Image"></li>
+                    <li class="atml-image--image" data-content="5"><img src="images/8176_SLCF_ChemicalDeposition[1].png" alt="Body Image"></li>
+                    <li class="atml-image--image" data-content="6"><img src="images/8176_SLCF_WetDryDeposition[1].png" alt="Body Image"></li>
+                    <li class="atml-image--image" data-content="7"><img src="images/8176_SLCF_AbsorptionSurface.png" alt="Body Image"></li>
+                    <li class="atml-image--image" data-content="8"><img src="images/8176_SLCF_Emissions.png" alt="Body Image"></li>
                 </ul>
                 
             </div>
             <div class="atml-description">
                 <ul>
-                    <li>
-                        <h2><a href="#" class="atml-description--title" data-content="1">Atmospheric Lifetimes</a></h2>
+                    <li class="atml-description--list-item active">
+                        <h2 class="atml-description--header section-header"><a href="#" class="atml-description--title" data-content="1">Atmospheric Lifetimes</a></h2>
                         <div class="atml-description--content active" data-content="1">
-                            <p>This interactive graphic desribes the process that afect how long gases stay in the atmosphere and the ways in which they can leave.</p>
+                            <p>This interactive graphic desribes the process that affect how long gases stay in the atmosphere and the ways in which they can leave.</p>
                         </div>
                     </li>
-                    <li>
-                        <h2><a href="#" class="atml-description--title" data-content="2">Long-lived gases</a></h2>
+                    <li class="atml-description--list-item">
+                        <h2 class="atml-description--header"><a href="#" class="atml-description--title" data-content="8">Emissions</a></h2>
+                        <div class="atml-description--content" data-cotent="8">
+                            <p>From bacteria to plants, many organisms have a biological need to convert certain greenhouse gases, included CH<sub>4</sub> and CO<sub>2</sub>. Gases can also get absorbed into the oceans, which represent a major sink for long-lived gases.</p>
+                        </div>
+                    </li>
+                    <li class="atml-description--list-item">
+                        <h2 class="atml-description--header"><a href="#" class="atml-description--title" data-content="2">Long-lived gases</a></h2>
                         <div class="atml-description--content" data-content="2">
                             <p>Long-lived gases can leave the atmosphere, but tend to do so in slower processes. They tend to be more chemically stable and exercise their warming effect over hundred or thousands of years.</p>
                         </div>
                     </li>
-                    <li>
-                        <h2><a href="#" class="atml-description--title" data-content="3">Short-lived gases</a></h2>
+                    <li class="atml-description--list-item">
+                        <h2 class="atml-description--header"><a href="#" class="atml-description--title" data-content="3">Short-lived gases</a></h2>
                         <div class="atml-description--content" data-cotent="3">
                             <p>Short-lived gases are defiend by having highly efficient pathways for leaving the atmosphere. Even though they do not stay in the atmosphere beyond a couple decades, their warming effects can be among the highest of all.</p>
                         </div>
                     </li>
-                    <li>
-                        <h2><a href="#" class="atml-description--title" data-content="4">Loss Pathways</a></h2>
+                    <!-- <li class="atml-description--list-item">
+                        <h2 class="atml-description--header"><a href="#" class="atml-description--title" data-content="4">Loss Pathways</a></h2>
                         <div class="atml-description--content" data-cotent="4">
                             <p></p>
                         </div>
+                    </li> -->
+                    <li class="atml-description--list-item">
+                        <h2 class="atml-description--header section-header"><a href="#" class="atml-description--title" data-content="4">Loss Pathways</a></h2>
                     </li>
-                    <li>
-                        <h2><a href="#" class="atml-description--title" data-content="5">Chemical deposition</a></h2>
+                    <li class="atml-description--list-item">
+                        <h2 class="atml-description--header"><a href="#" class="atml-description--title" data-content="5">Chemical deposition</a></h2>
                         <div class="atml-description--content" data-cotent="5">
                             <p>Many gases react with sunlight or other trace molecules in the atmosphere. Once they react, they transform into other molecules that might no longer warm the Earth. In other cases, they may become even stronger.</p>
                         </div>
                     </li>
-                    <li>
-                        <h2><a href="#" class="atml-description--title" data-content="6">Wet/dry deposition</a></h2>
+                    <li class="atml-description--list-item">
+                        <h2 class="atml-description--header"><a href="#" class="atml-description--title" data-content="6">Wet/dry deposition</a></h2>
                         <div class="atml-description--content" data-cotent="6">
                             <p>When gases get absorbed into rain, snow, or fog, they can fall to the ground as precipitation. They can also combine with dust or smoke to fall to the ground as solids. Once no longer airborne, the gases are on Earth's surface.</p>
                         </div>
                     </li>
-                    <li>
-                        <h2><a href="#" class="atml-description--title" data-content="7">Absorption by surface</a></h2>
+                    <li class="atml-description--list-item">
+                        <h2 class="atml-description--header"><a href="#" class="atml-description--title" data-content="7">Absorption by surface</a></h2>
                         <div class="atml-description--content" data-cotent="7">
                             <p>From bacteria to plants, many organisms have a biological need to convert certain greenhouse gases, included CH<sub>4</sub> and CO<sub>2</sub>. Gases can also get absorbed into the oceans, which represent a major sink for long-lived gases.</p>
                         </div>
                     </li>
+                    
                 </ul>
+                           
             </div>
         </div>
     </div>
