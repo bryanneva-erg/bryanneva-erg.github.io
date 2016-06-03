@@ -28,18 +28,15 @@ $(function() {
             case 5:
             case 6:
             case 7:
-                $title.text('Loss Pathways')
+                $title.text('Loss Pathways');
                 break;
             case 1:
             case 8:
             case 2:
             case 3:
             default:
-                $title.text('Atmospheric Lifetimes')
-                break;
-
-
-            
+                $title.text('Atmospheric Lifetimes');
+                break;           
         }
 
         return false;
