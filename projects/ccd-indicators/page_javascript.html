@@ -13,18 +13,18 @@
 jQuery(document).ready(function() {
   // iframe  
   // var $iframeContainer = jQuery('#ccd-heating-cooling-container');
-  var $iframe = jQuery('#ccd-heating-cooling-iframe');
-  $iframe.load(function() {
-    console.log('Iframe loaded');
-  });
+  // var $iframe = jQuery('#ccd-heating-cooling-iframe');
+  // $iframe.load(function() {
+  //   console.log('Iframe loaded');
+  // });
 
-  $iframe.change(function() {
-    console.warn('Iframe changed');
-  });
+  // $iframe.change(function() {
+  //   console.warn('Iframe changed');
+  // });
 
-  $iframe.click(function() {
-    console.warn('Iframe clicked');
-  });
+  // $iframe.click(function() {
+  //   console.warn('Iframe clicked');
+  // });
   // var $iframe = jQuery('#ccd-heating-cooling-iframe').contents();
   // console.log('iframe:',$iframe[0]);
   // $iframe.click(function(e) {
@@ -34,6 +34,17 @@ jQuery(document).ready(function() {
   // jQuery('#chart_container1').bind()
   // var $chartContainer = jQuery('#chart_container1');
   // console.log('Chart container:',$chartContainer[0]);
+  // Create IE + others compatible event handler
+  var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+  var eventer = window[eventMethod];
+  var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+  // Listen to message from child window
+  eventer(messageEvent,function(e) {
+    console.log('parent received message!:  ',e.data);
+    document.getElementById('ccd-heating-cooling-iframe').height = e.data + 'px';
+  },false);
+  
 
   // Accordion
   /*jQuery('#pane-1-link, #pane-1').addClass('active');

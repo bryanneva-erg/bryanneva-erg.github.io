@@ -20,6 +20,7 @@
 </head>
 
 <body onload="adjust_iframe_height();">
+<a id="height-link" href="#">Adjust the height here</a>
   <div style="border: solid #136fb0; border-width:0px 0px 0px 0px;" id="chart_container1"></div>
 
   <!-- Load Highcharts Dependancies -->
@@ -40,7 +41,6 @@
   <!-- Create the charts -->
   <script>
     (function($) {
-
       // apply custom theme to charts
       Highcharts.setOptions(Highcharts.theme);
 
@@ -51,6 +51,10 @@
       var noDataNote = '';
       createChart('heating-cooling_figure-2.csv', '#chart_container1', legendColors1, lineChartDates, noDataNote);
       // createChart('heating-cooling_figure-3.csv', '#chart_container2', legendColors2, lineChartDates, noDataNote);
+      
+      jQuery('#chart_container1').click(function(e) {
+        console.log('Clicked on chart container 1!');
+      })
     })(jQuery);
   </script>
 
@@ -64,6 +68,14 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.js" ></script>  
 
   <script type="text/javascript">
+
+    jQuery('#height-link').click(function(e) {
+      e.preventDefault();
+
+      adjust_iframe_height();
+
+      console.warn('Clicked on height adjust link');
+    })
     $(document).ready(function(){
    	  //Homepage Accordion
       $(".accordion h5:first").addClass("active");
