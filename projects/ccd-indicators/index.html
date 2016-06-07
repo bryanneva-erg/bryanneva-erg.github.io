@@ -34,6 +34,31 @@
 
   <!-- Create the charts -->
   <script>
+    (function (H) {
+      function sendHeightToParent(){
+        console.warn('sending height');
+        parent.postMessage(jQuery(document).height(),"*");
+      }
+
+      Highcharts.Chart.prototype.callbacks.push(function (chart) {
+          H.addEvent(chart.container, 'click', function (e) {
+              e = chart.pointer.normalize();
+              sendHeightToParent();
+              console.log('Clicked chart at ' + e.chartX + ', ' + e.chartY);
+          });
+          H.addEvent(chart.xAxis[0], 'afterSetExtremes', function (e) {
+              console.log('Set extremes to ' + e.min + ', ' + e.max);
+              sendHeightToParent();
+          });
+      });
+      
+      jQuery('#height-link').click(function(e) {
+        e.preventDefault();
+        console.warn('Clicked on height adjust link',jQuery(document).height());
+        sendHeightToParent();
+      })
+    }(Highcharts));
+
     (function($) {
       // apply custom theme to charts
       Highcharts.setOptions(Highcharts.theme);
@@ -45,10 +70,6 @@
       var noDataNote = '';
       createChart('heating-cooling_figure-2.csv', '#chart_container1', legendColors1, lineChartDates, noDataNote);
       // createChart('heating-cooling_figure-3.csv', '#chart_container2', legendColors2, lineChartDates, noDataNote);
-      
-      jQuery('#chart_container1').click(function(e) {
-        console.log('Clicked on chart container 1!');
-      })
     })(jQuery);
   </script>
 
@@ -63,14 +84,9 @@
 
   <script type="text/javascript">
 
-    jQuery('#height-link').click(function(e) {
-      e.preventDefault();
-      // parent.postMessage(actual_height,"*"); 
-      // adjust_iframe_height();
 
-      console.warn('Clicked on height adjust link',jQuery(document).height());
-      parent.postMessage(jQuery(document).height(),"*");
-    })
+    
+    
     $(document).ready(function(){
    	  //Homepage Accordion
       $(".accordion h5:first").addClass("active");
