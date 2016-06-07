@@ -418,7 +418,9 @@ var createChart = function(filename, containername, legendColors, lineChartDates
 
       var selectedPointsArray = mapChart.getSelectedPoints(), // contains an array of the selected points
         lineChart; // will become the line chart on first select
-
+      
+      if(lineChart) lineChart.destroy();
+      
       // if the line chart is undefined (it will be initially), so initiation only occurs on the first select
       if (!lineChart) {
         var chartOptions = {
