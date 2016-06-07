@@ -1,0 +1,107 @@
+<style>
+#navigation td {
+    padding:2px;
+    margin:0px !important;
+}
+#navigation td small {
+    padding:2px;
+}
+</style>
+<script src="/sites/all/libraries/cycle/jquery.cycle2.min.js"></script>
+
+<script>
+jQuery(document).ready(function() {
+  // iframe  
+  // var $iframeContainer = jQuery('#ccd-heating-cooling-container');
+  var $iframe = jQuery('#ccd-heating-cooling-iframe');
+  $iframe.load(function() {
+    console.log('Iframe loaded');
+  });
+
+  $iframe.change(function() {
+    console.warn('Iframe changed');
+  });
+
+  $iframe.click(function() {
+    console.warn('Iframe clicked');
+  });
+  // var $iframe = jQuery('#ccd-heating-cooling-iframe').contents();
+  // console.log('iframe:',$iframe[0]);
+  // $iframe.click(function(e) {
+  //   console.log('Clicked on iframe',e);
+  // });
+  // 
+  // jQuery('#chart_container1').bind()
+  // var $chartContainer = jQuery('#chart_container1');
+  // console.log('Chart container:',$chartContainer[0]);
+
+  // Accordion
+  /*jQuery('#pane-1-link, #pane-1').addClass('active');
+  jQuery('#pane-1').css('display','block');*/
+
+  // Tabs
+  jQuery('#tabs > div').hide(); // hide all child divs
+  jQuery('#tabs div:first').show(); // show first child dive
+  jQuery('#tabsnav li:first').addClass('active');
+
+  jQuery('.menu-internal').click(function(){
+    jQuery('#tabsnav li').removeClass('active');
+    var currentTab = jQuery(this).attr('href');
+    jQuery('#tabsnav li a[href="' + currentTab + '" ]').parent().addClass('active');
+    jQuery('#tabs > div').hide();
+    jQuery(currentTab).show();
+    return false;
+  });
+
+  // Create a bookmarkable tab link
+  hash = window.location.hash;
+  elements = jQuery('a[href="' + hash + '"]');
+  if (elements.length === 0) { 
+    jQuery("ul.tabs li:first").addClass("active").show(); 
+  } else { 
+    jQuery('html,body').scrollTop(200); elements.click(); 
+  } 
+
+
+  // Slideshow
+  var slideshow = jQuery("#slideshow"),
+      navBtns       = ['nav1','nav2'],
+      activeStyle   = {'border':'1px solid black'},
+      inactiveStyle = {'border':'none'},
+      $table;
+        
+  slideshow.cycle({
+    paused: true,
+    slides: 'li',
+    fx: 'none',
+    autoHeight: 'container',
+    updateView: 1,
+    log: false,
+    height: '900px',
+    timeout:0,
+    speed:1
+  });
+
+  navBtns.forEach(function (element, index) {
+    jQuery('a[id^=' + element + ']').click(function (e) {
+      
+      e.preventDefault();
+      
+      resetBorder(navBtns, inactiveStyle);
+      $table = jQuery(this).closest('tbody');
+      $table.css(activeStyle);
+      slideshow.cycle('goto',index);
+      // console.log(element,index)
+    });
+  });
+
+  jQuery('#nav1').trigger('click');
+});
+
+function resetBorder(target,style){
+  target.forEach(function (element, index) {
+    $table = jQuery("a[id^=" + element + "]").closest('tbody');
+    $table.css(style);
+  });
+}
+</script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--EPA Template, OneEPA Web, 17 November 2010 -->
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+  <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
+  <link type="application/atom+xml" title="EPA.gov News" rel="alternate" href="https://yosemite.epa.gov/opa/admpress.nsf/RSSRecentNews"/><link rel="alternate" type="application/atom+xml" title="EPA.gov Headquarters Press Releases" href="https://yosemite.epa.gov/opa/admpress.nsf/RSSByLocation?open&location=Headquarters" />
+  <link type="application/atom+xml" title="Greenversations, EPA's Blog" rel="alternate" href="http://blog.epa.gov/blog/feed/"/>
+  <link type="application/rdf+xml" title="ICRA labels" rel="meta" href="https://www.epa.gov/labels.rdf"/> 
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+          	 
+</head>
+
+<body>
+  <div style="border: solid #136fb0; border-width:0px 0px 0px 0px;" id="chart_container1"></div>
+
+  <!-- Load Highcharts Dependancies -->
+  <script src="js/jquery/jquery-1.11.1.min.js"></script>
+  <script src="js/highcharts/highmaps.js"></script>
+  <script src="js/highcharts/exporting.js"></script>
+
+  <!-- Highmaps 'United States of America' Map Collection -->
+  <script src="js/highcharts/us-all.js"></script>
+
+  <!-- Custom Highcharts Theme -->
+  <script src="js/indicators_chart_theme.js"></script>
+
+  <!-- Custom createChart function -->
+  <!-- <script src="../../../scripts/createchart.js"></script> -->
+  <script src="js/createchart.js"></script>
+
+  <!-- Create the charts -->
+  <script>
+    (function($) {
+
+      // apply custom theme to charts
+      Highcharts.setOptions(Highcharts.theme);
+
+      // create charts on page
+      var legendColors1 = ['#FF0000', '#FF4040', '#FF8080', '#FFC0C0', '#FFFFFF', '#C0C0E6', '#8080CC', '#4040B3', '#000099'];
+      var legendColors2 = legendColors1.slice().reverse();
+      var lineChartDates = [1890, 2020];
+      var noDataNote = '';
+      createChart('heating-cooling_figure-2.csv', '#chart_container1', legendColors1, lineChartDates, noDataNote);
+      createChart('heating-cooling_figure-3.csv', '#chart_container2', legendColors2, lineChartDates, noDataNote);
+    })(jQuery);
+  </script>
+
+  <script type="text/javascript" src="https://www3.epa.gov/epafiles/js/third-party/jquery.js"> </script>
+  <script type="text/javascript" src="https://www3.epa.gov/epafiles/js/epa-core-v4.js"> </script>    
+  
+  <!-- Begin: page related java script -->        
+  <!-- Begin: page related java script -->
+  <script type="text/javascript" src="../../../scripts/main.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.js" ></script>  
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+   	  //Homepage Accordion
+      $(".accordion h5:first").addClass("active");
+	    $(".accordion div:not(:first)").hide();
+      $(".accordion h5").click(function(){
+        $(this).next(".panel").slideToggle("slow").siblings(".panel:visible").slideUp("slow");
+        $(this).toggleClass("active");
+        $(this).siblings("h5").removeClass("active");
+      });
+    });
+
+    $(document).ready(function(){  
+      $("#featured > ul").tabs({fx:{opacity: "toggle"}}).tabs;  
+    });
+
+    /*$(document).ready(function(){  
+        $("#featured > ul").tabs({fx:{opacity: "toggle"}}).tabs("rotate", 5000, true);  
+    });
+    */
+  </script>
+  <!-- End: page related java script --> 
+</body>
+</html>
