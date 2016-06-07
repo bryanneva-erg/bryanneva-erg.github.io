@@ -14,7 +14,6 @@
 </head>
 
 <body>
-  <a id="height-link" href="#">Adjust the height here</a>
   <div style="border: solid #136fb0; border-width:0px 0px 0px 0px;" id="chart_container1"></div>
 
   <!-- Load Highcharts Dependancies -->
@@ -51,12 +50,6 @@
               sendHeightToParent();
           });
       });
-      
-      jQuery('#height-link').click(function(e) {
-        e.preventDefault();
-        console.warn('Clicked on height adjust link',jQuery(document).height());
-        sendHeightToParent();
-      })
     }(Highcharts));
 
     (function($) {
