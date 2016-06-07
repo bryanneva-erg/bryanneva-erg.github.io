@@ -34,20 +34,24 @@
   <!-- Create the charts -->
   <script>
     (function (H) {
-      function sendHeightToParent(){
-        console.warn('sending height');
-        parent.postMessage(jQuery(document).height(),"*");
+      function sendHeightToParent(numSelectedPoints){
+        var height = 450;
+        if(numSelectedPoints) {
+          height = jQuery(document).height();
+        }
+
+        parent.postMessage(height,"*");
       }
 
       Highcharts.Chart.prototype.callbacks.push(function (chart) {
           H.addEvent(chart.container, 'click', function (e) {
               e = chart.pointer.normalize();
-              sendHeightToParent();
+              sendHeightToParent(chart.getSelectedPoints().length);
               console.log('Clicked chart at ' + e.chartX + ', ' + e.chartY);
           });
           H.addEvent(chart.xAxis[0], 'afterSetExtremes', function (e) {
               console.log('Set extremes to ' + e.min + ', ' + e.max);
-              sendHeightToParent();
+              sendHeightToParent(chart.getSelectedPoints().length);
           });
       });
     }(Highcharts));
