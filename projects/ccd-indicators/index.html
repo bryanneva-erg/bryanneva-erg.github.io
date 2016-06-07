@@ -11,16 +11,10 @@
   <link type="application/atom+xml" title="Greenversations, EPA's Blog" rel="alternate" href="http://blog.epa.gov/blog/feed/"/>
   <link type="application/rdf+xml" title="ICRA labels" rel="meta" href="https://www.epa.gov/labels.rdf"/> 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-  <script>
-    function adjust_iframe_height(){
-      var actual_height = document.getElementById('chart_container1').scrollHeight;
-      parent.postMessage(actual_height,"*"); 
-    }
-  </script> 	 
 </head>
 
-<body onload="adjust_iframe_height();">
-<a id="height-link" href="#">Adjust the height here</a>
+<body>
+  <a id="height-link" href="#">Adjust the height here</a>
   <div style="border: solid #136fb0; border-width:0px 0px 0px 0px;" id="chart_container1"></div>
 
   <!-- Load Highcharts Dependancies -->
@@ -71,10 +65,11 @@
 
     jQuery('#height-link').click(function(e) {
       e.preventDefault();
+      // parent.postMessage(actual_height,"*"); 
+      // adjust_iframe_height();
 
-      adjust_iframe_height();
-
-      console.warn('Clicked on height adjust link');
+      console.warn('Clicked on height adjust link',jQuery(document).height());
+      parent.postMessage(jQuery(document).height(),"*");
     })
     $(document).ready(function(){
    	  //Homepage Accordion
