@@ -247,7 +247,7 @@ var createChart = function(filename, containername, legendColors, lineChartDates
     var mapOptions = {
       chart: {
         renderTo: 'map' + chartnumber,
-        width: 500,
+        // width: 500,
         height: 450,
         zoomType: 'xy',
         events: {
